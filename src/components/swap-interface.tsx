@@ -78,7 +78,6 @@ export default function SwapInterface() {
   const balances = usePoolBalances();
   const multipliers = [1, 16500, 17944].map(BigInt);
 
-  console.log("mappedTokens", mappedTokens);
   const { data: allowanceIdr } = useReadContract({
     address: IDRXContract.address, // ERC20 token address
     abi: IDRXContract.abi,
@@ -183,13 +182,22 @@ export default function SwapInterface() {
     }
     if (amountIn && !isNaN(Number(amountIn))) {
       try {
-        const inputBigInt = BigInt(Math.floor(Number(amountIn) * 1e18));
+        const floatingPoint = fromToken.id === "idrx" ? 1e2 : 1e6;
+        const inputBigInt = BigInt(
+          Math.floor(Number(amountIn) * floatingPoint)
+        );
+        console.log("inputBigInt", inputBigInt);
+        console.log("fromtoken", fromToken);
+        console.log(
+          "mappedTokens[fromToken.index].balance",
+          mappedTokens[fromToken.index].balance
+        );
         if (inputBigInt <= mappedTokens[fromToken.index].balance) {
           setHasEnoughBalance(true);
         } else {
           setHasEnoughBalance(false);
         }
-        const defaultAmount = BigInt(1e18); // Use 1 token as default amount
+        const defaultAmount = BigInt(floatingPoint); // Use 1 token as default amount
         let output;
         let defaultRate;
         if (fromToken?.index !== undefined && toToken?.index !== undefined) {
@@ -209,8 +217,8 @@ export default function SwapInterface() {
             multipliers
           );
         }
-        setRate((Number(defaultRate) / 1e18).toFixed(6));
-        setAmountOut((Number(output) / 1e18).toFixed(6));
+        setRate((Number(defaultRate) / floatingPoint).toFixed(6));
+        setAmountOut((Number(output) / floatingPoint).toFixed(6));
       } catch (err) {
         console.error("error calculating swap", err);
       }
