@@ -98,7 +98,8 @@ export default function SwapInterface() {
   });
 
   const approveIfNeeded = async () => {
-    const inputAmount = BigInt(Math.floor(Number(amountIn) * 1e18));
+    const floatingPoint = fromToken.id === "idrx" ? 1e2 : 1e6;
+    const inputAmount = BigInt(Math.floor(Number(amountIn) * floatingPoint));
     let allowance = BigInt(0);
     let tokenContract = IDRXContract;
 
@@ -126,7 +127,7 @@ export default function SwapInterface() {
         address: tokenContract.address,
         abi: tokenContract.abi,
         functionName: "approve",
-        args: [stableSwapContract.address, inputAmount + BigInt(1)],
+        args: [stableSwapContract.address, inputAmount + BigInt(floatingPoint)],
       });
     } else {
       console.log(
@@ -187,7 +188,6 @@ export default function SwapInterface() {
           Math.floor(Number(amountIn) * floatingPoint)
         );
         console.log("inputBigInt", inputBigInt);
-        console.log("fromtoken", fromToken);
         console.log(
           "mappedTokens[fromToken.index].balance",
           mappedTokens[fromToken.index].balance
@@ -241,8 +241,15 @@ export default function SwapInterface() {
 
   const handleSwapTransaction = () => {
     if (!fromToken || !toToken || !amountIn) return;
-    const inputBigInt = BigInt(Math.floor(Number(amountIn) * 1e18));
-    const outputBigInt = BigInt(Math.floor(Number(amountOut) * 1e18));
+    console.log("fromToken swap", fromToken);
+    const inputFloatingPoint = fromToken.id === "idrx" ? 1e2 : 1e6;
+    const outputFloatingPoint = toToken.id === "idrx" ? 1e2 : 1e6;
+    const inputBigInt = BigInt(
+      Math.floor(Number(amountIn) * inputFloatingPoint)
+    );
+    const outputBigInt = BigInt(
+      Math.floor(Number(amountOut) * outputFloatingPoint)
+    );
     const minDy = getMinDy(outputBigInt, slippageTolerance);
     approveIfNeeded();
     swap(fromToken.index, toToken.index, inputBigInt, minDy);
