@@ -234,7 +234,7 @@ export default function VaultInterface() {
         transition={{ duration: 0.5 }}
       >
         <h1 className="text-3xl font-bold text-white tracking-tight">
-          WOWOswap Vaults
+          NusanSwap Vaults
         </h1>
         <p className="text-gray-400 mt-1">Earn yield on your stablecoins</p>
       </motion.div>
@@ -487,7 +487,7 @@ export default function VaultInterface() {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.7 }}
       >
-        <p>WOWOswap v1.0 • Yield Vaults</p>
+        <p>NusanSwap v1.0 • Yield Vaults</p>
       </motion.div>
     </div>
   );

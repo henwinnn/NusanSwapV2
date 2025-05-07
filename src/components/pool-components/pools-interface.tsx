@@ -85,7 +85,7 @@ export default function PoolsInterface() {
         transition={{ duration: 0.5 }}
       >
         <h1 className="text-3xl font-bold text-white tracking-tight">
-          WOWOswap Pools
+          NusanSwap Pools
         </h1>
         <p className="text-gray-400 mt-1">Provide liquidity and earn fees</p>
       </motion.div>
@@ -174,7 +174,7 @@ export default function PoolsInterface() {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.7 }}
       >
-        <p>WOWOSwap v1.0 • Liquidity Pools</p>
+        <p>NusanSwap v1.0 • Liquidity Pools</p>
       </motion.div>
     </div>
   );

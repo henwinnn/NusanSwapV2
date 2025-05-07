@@ -2,7 +2,7 @@ import SwapInterface from "@/components/swap-interface";
 import Navbar from "@/components/navbar";
 
 export const metadata = {
-  title: "WOWOSwap",
+  title: "NusanSwap",
 };
 
 export default function Home() {

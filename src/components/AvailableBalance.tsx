@@ -1,9 +1,9 @@
 "use client";
 
-import { formatEther, formatUnits } from "viem";
+import { formatUnits } from "viem";
 // import { TokensMapping } from "@/custom-hooks/readContracts";
 import { Token } from "./swap-interface";
-import { formatIDR, formatUSD } from "@/util/helper";
+import { formatUSD } from "@/util/helper";
 
 interface CardHeaderProps {
   mappingToken: Token[];
@@ -21,15 +21,17 @@ export default function AvailableBalance({
   handleSwap,
 }: CardHeaderProps) {
   const handleInputAll = (token: Token) => {
+    const decimal = token.id == "idrx" ? 1e2 : 1e6;
     if (token.index == toToken.index) {
       handleSwap();
     } else {
       setFromToken(token);
     }
-    if (Number(token.balance) / 1e18 < 0.000001) {
+    console.log({ token });
+    if (Number(token.balance) / decimal < 0.000001) {
       setAmountIn((0).toString());
     } else {
-      setAmountIn((Number(token.balance) / 1e18).toString());
+      setAmountIn((Number(token.balance) / decimal).toString());
     }
   };
   // const mappingToken = TokensMapping(address);
@@ -38,7 +40,6 @@ export default function AvailableBalance({
       <h3 className="text-sm text-gray-400 mb-2">Available Balance</h3>
       <div className="grid grid-cols-3 gap-2">
         {mappingToken.map((token) => {
-          console.log("token", token);
           const decimal = token.id == "idrx" ? 2 : 6;
           return (
             <div
