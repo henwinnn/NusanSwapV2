@@ -9,7 +9,7 @@ export default function Footer() {
       animate={{ opacity: 1 }}
       transition={{ delay: 0.7 }}
     >
-      <p>WOWOswap v1.0 • Simulated Exchange</p>
+      <p>NusanSwap v1.0 • Simulated Exchange</p>
     </motion.div>
   );
 }

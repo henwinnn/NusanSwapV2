@@ -47,7 +47,7 @@ export default function Navbar() {
                 className="text-white font-bold text-xl tracking-tight"
                 style={{ width: "100px" }}
               >
-                WOWOSwap
+                NusanSwap
               </span>
             </motion.div>
           </Link>

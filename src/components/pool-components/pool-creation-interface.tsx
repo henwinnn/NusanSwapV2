@@ -393,7 +393,7 @@ export default function PoolCreationInterface() {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.7 }}
       >
-        <p>WOWOSwap v1.0 • Pool Creation</p>
+        <p>NusanSwap v1.0 • Pool Creation</p>
       </motion.div>
     </div>
   );
