@@ -37,7 +37,6 @@ export default function SwapButton({
   isConnected,
   handleSwapTransaction,
 }: SwapButtonProps) {
-  console.log("isConnected", isConnected);
   return (
     <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
       <Button

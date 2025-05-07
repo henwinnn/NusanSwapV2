@@ -10,6 +10,10 @@ export const useWriteContractSwap = () => {
     inputBigInt: bigint,
     minDy: bigint
   ) => {
+    console.log("fromIndex", fromIndex);
+    console.log("toIndex", toIndex);
+    console.log("inputBigInt", inputBigInt);
+    console.log("minDy", minDy);
     return writeContract({
       address: stableSwapContract.address,
       abi: stableSwapContract.abi,

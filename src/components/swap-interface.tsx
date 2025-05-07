@@ -187,11 +187,7 @@ export default function SwapInterface() {
         const inputBigInt = BigInt(
           Math.floor(Number(amountIn) * floatingPoint)
         );
-        console.log("inputBigInt", inputBigInt);
-        console.log(
-          "mappedTokens[fromToken.index].balance",
-          mappedTokens[fromToken.index].balance
-        );
+
         if (inputBigInt <= mappedTokens[fromToken.index].balance) {
           setHasEnoughBalance(true);
         } else {
@@ -241,7 +237,6 @@ export default function SwapInterface() {
 
   const handleSwapTransaction = () => {
     if (!fromToken || !toToken || !amountIn) return;
-    console.log("fromToken swap", fromToken);
     const inputFloatingPoint = fromToken.id === "idrx" ? 1e2 : 1e6;
     const outputFloatingPoint = toToken.id === "idrx" ? 1e2 : 1e6;
     const inputBigInt = BigInt(

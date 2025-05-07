@@ -38,7 +38,6 @@ export default function AvailableBalance({
       <h3 className="text-sm text-gray-400 mb-2">Available Balance</h3>
       <div className="grid grid-cols-3 gap-2">
         {mappingToken.map((token) => {
-          console.log("token", token);
           const decimal = token.id == "idrx" ? 2 : 6;
           return (
             <div
