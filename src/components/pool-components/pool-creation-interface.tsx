@@ -127,14 +127,6 @@ export default function PoolCreationInterface() {
   };
 
   const handleCreatePool = () => {
-    console.log({
-      baseToken,
-      quoteTokens,
-      feeTier,
-      binStep,
-      initialPrice,
-      isMultiPool,
-    });
     router.push("/pool");
   };
 
