@@ -6,8 +6,13 @@ import { XellarKitProvider, defaultConfig, darkTheme } from "@xellar/kit";
 import { liskSepolia } from "viem/chains";
 
 const walletConnectProjectId =
-  process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID;
-const xellarAppId = process.env.NEXT_PUBLIC_XELLAR_APP_ID;
+  process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID ?? "";
+const xellarAppId = process.env.NEXT_PUBLIC_XELLAR_APP_ID ?? "";
+
+if (!walletConnectProjectId || !xellarAppId) {
+  console.warn("Missing environment variables for wallet connection");
+}
+
 const config = defaultConfig({
   appName: "Xellar",
   walletConnectProjectId,
