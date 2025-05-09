@@ -5,21 +5,21 @@ import eurcABI from "../abi/eurcABI.json" assert { type: "json" }; // Import ABI
 import type { Address } from "viem";
 
 export const stableSwapContract = {
-  address: "0x3cf706CC14ba5d552f1357237E8ed848433c703A" as Address,
+  address: "0xd4C8A44fb17C722A33bBe417Db5E59590010c2e1" as Address,
   abi: StableSwapABI.abi,
 } as const;
 
 export const IDRXContract = {
-  address: "0xe8Cfe76957686F15C79853F36B441AaC60D630C1" as Address,
+  address: "0xD63029C1a3dA68b51c67c6D1DeC3DEe50D681661" as Address,
   abi: idrxABI.abi,
 } as const;
 
 export const USDCContract = {
-  address: "0x917d538E1b50A1A4C821E9E70d3cbc95c46398E2" as Address,
+  address: "0xDE69fF1232314CC96B48d862EC5bFEb927F79444" as Address,
   abi: usdcABI.abi,
 } as const;
 
 export const EURCContract = {
-  address: "0x32c02cD6DE264146Aec46002ff1B7c85a8922f88" as Address,
+  address: "0xA8A5582c0Eb9ff39edB05aB7534B4A4c750fba17" as Address,
   abi: eurcABI.abi,
 } as const;
