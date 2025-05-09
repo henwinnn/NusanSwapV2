@@ -84,7 +84,6 @@ export default function SwapInterface() {
     (dec, i) => BigInt(Math.pow(10, 18 - dec)) * BigInt(conversionRates[i])
   );
 
-  console.log({ multipliers });
   // const multipliers = [1, 16500, 17944].map(BigInt);
 
   const { data: allowanceIdr } = useReadContract({

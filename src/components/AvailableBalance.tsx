@@ -27,7 +27,6 @@ export default function AvailableBalance({
     } else {
       setFromToken(token);
     }
-    console.log({ token });
     if (Number(token.balance) / decimal < 0.000001) {
       setAmountIn((0).toString());
     } else {
